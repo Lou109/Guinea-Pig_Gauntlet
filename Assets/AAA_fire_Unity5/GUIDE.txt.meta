@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d6ba361cefdeaaf41b15a48f11badd77
+timeCreated: 1441458461
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45415
+  packageName: AAA Fire FX
+  packageVersion: 1.0
+  assetPath: Assets/AAA_fire_Unity5/GUIDE.txt
+  uploadId: 291887

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 39ecb8de3b470e7468e7fed0f16f92ee
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45415
+  packageName: AAA Fire FX
+  packageVersion: 1.0
+  assetPath: Assets/AAA_fire_Unity5/scripts/Random_movement.cs
+  uploadId: 291887

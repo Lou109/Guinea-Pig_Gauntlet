@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ce4ab4d154ddd954c9c136f291afc94c
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 45415
+  packageName: AAA Fire FX
+  packageVersion: 1.0
+  assetPath: Assets/AAA_fire_Unity5/scripts/demo_scene_control.cs
+  uploadId: 291887
