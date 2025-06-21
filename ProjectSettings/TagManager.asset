@@ -14,6 +14,7 @@ TagManager:
   - TriggerPoint
   - Boulder
   - SafeZone
+  - Slide
   layers:
   - Default
   - TransparentFX
