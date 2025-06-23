@@ -8,14 +8,24 @@ public class Mover : MonoBehaviour
     [SerializeField] private float rotationSpeed = 120f; // degrees/sec
     [SerializeField] private float runSpeed = 7f;
     [SerializeField] private float walkSpeed = 4f;
+    [SerializeField] private float slideSpeed = 5f;
+    [SerializeField] private float swaySpeed = 50f;
+    [SerializeField] private float autoSlideSpeed = 5f;             // Moving forward speed (can tweak in inspector)
+    [SerializeField] private float swayKeySensitivity = 1f;        // How much sway per key press
+    [SerializeField] private float maxSwayRotationSpeed = 30f;     // Max degrees per second
+    [SerializeField] private float swaySmoothness = 10f;           // How quickly sway adapts
+
+private float swayInputSmoothed = 0f;
+
     private float moveSpeed;
 
-    
+
     [SerializeField] private float jumpForce = 8f; // Jump force
     private Rigidbody myRigidbody;
     private bool isGrounded = true;
     private bool canJump = true;
     private bool hasBeenSquashed = false;
+    private bool isSliding = false;
 
     private PlayerSquash playerSquash;
     [SerializeField] private Animator animator;
@@ -37,9 +47,17 @@ public class Mover : MonoBehaviour
 
     private void Update()
     {
-        HandleControls();
-        HandleJump();
-        HandleRun();
+        if (isSliding)
+        {
+            HandleSliding();
+            HandleJump();
+        }
+        else
+        {
+            HandleControls();
+            HandleJump();
+            HandleRun();
+        }
     }
 
     private void HandleControls()
@@ -81,17 +99,37 @@ public class Mover : MonoBehaviour
             }
         }
     }
+    private void HandleSliding()
+{
+    // Move forward automatically
+    transform.position += transform.forward * autoSlideSpeed * Time.deltaTime;
 
+    // Determine target sway based on input
+    float targetSway = 0f;
+    if (Input.GetKey(KeyCode.A))
+        targetSway = -1f;
+    else if (Input.GetKey(KeyCode.D))
+        targetSway = 1f;
+
+    // Smooth the sway input for gradual change
+    swayInputSmoothed = Mathf.Lerp(swayInputSmoothed, targetSway, swaySmoothness * Time.deltaTime);
+
+    // Calculate sway rotation with max speed limit
+    float swayRotation = swayInputSmoothed * maxSwayRotationSpeed;
+
+    // Apply rotation
+    transform.Rotate(0, swayRotation * Time.deltaTime, 0);
+}
     private void HandleRun()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-           
+
             moveSpeed = runSpeed;
         }
         else
         {
-           
+
             moveSpeed = walkSpeed;
         }
     }
@@ -104,6 +142,12 @@ public class Mover : MonoBehaviour
     public void DisableJumping()
     {
         canJump = false;
+    }
+
+    public void SetSliding(bool slide)
+    {
+        isSliding = slide;
+        Debug.Log("SetSliding called with: " + slide);
     }
 
     private void OnCollisionEnter(Collision collision)
