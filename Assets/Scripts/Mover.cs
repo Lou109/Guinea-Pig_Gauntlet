@@ -8,10 +8,7 @@ public class Mover : MonoBehaviour
     [SerializeField] private float rotationSpeed = 120f; // degrees/sec
     [SerializeField] private float runSpeed = 7f;
     [SerializeField] private float walkSpeed = 4f;
-    [SerializeField] private float slideSpeed = 5f;
-    [SerializeField] private float swaySpeed = 50f;
     [SerializeField] private float autoSlideSpeed = 5f;             // Moving forward speed (can tweak in inspector)
-    [SerializeField] private float swayKeySensitivity = 1f;        // How much sway per key press
     [SerializeField] private float maxSwayRotationSpeed = 30f;     // Max degrees per second
     [SerializeField] private float swaySmoothness = 10f;           // How quickly sway adapts
 
