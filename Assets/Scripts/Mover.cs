@@ -11,11 +11,13 @@ public class Mover : MonoBehaviour
     [SerializeField] private float autoSlideSpeed = 5f;             // Moving forward speed (can tweak in inspector)
     [SerializeField] private float maxSwayRotationSpeed = 30f;     // Max degrees per second
     [SerializeField] private float swaySmoothness = 10f;           // How quickly sway adapts
+    [SerializeField] private Transform groundCheckPoint; // assign in inspector
+    [SerializeField] private float groundCheckDistance = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
 
-private float swayInputSmoothed = 0f;
+    private float swayInputSmoothed = 0f;
 
     private float moveSpeed;
-
 
     [SerializeField] private float jumpForce = 8f; // Jump force
     private Rigidbody myRigidbody;
@@ -56,6 +58,23 @@ private float swayInputSmoothed = 0f;
             HandleRun();
         }
     }
+private void FixedUpdate()
+{
+    CheckGround();
+}
+
+private void CheckGround()
+{
+    // Visualize the raycast in the scene for debugging
+    Debug.DrawRay(groundCheckPoint.position, Vector3.down * groundCheckDistance, Color.red);
+
+    // Raycast down only to detect ground
+    if (Physics.Raycast(groundCheckPoint.position, Vector3.down, groundCheckDistance, groundLayer))
+    {
+        isGrounded = true;
+    }
+    // Do NOT set to false here; only set false when jumping or leaving ground
+}
 
     private void HandleControls()
     {
