@@ -15,7 +15,9 @@ public class Mover : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float bobsleighSmoothingSpeed = 10f;
-   
+    [SerializeField] private float boostMultiplier = 1f;
+    [SerializeField] private float boostlengthofTime = 1f;
+
     [SerializeField] private float customGravityScale = 1.4f;
 
 
@@ -67,9 +69,9 @@ public class Mover : MonoBehaviour
         CheckGround();
         AlignToSlope();
 
-    myRigidbody.AddForce(Vector3.up * Physics.gravity.y * customGravityScale, ForceMode.Acceleration);
-    
-    }    
+        myRigidbody.AddForce(Vector3.up * Physics.gravity.y * customGravityScale, ForceMode.Acceleration);
+
+    }
 
     private void CheckGround()
     {
@@ -135,36 +137,36 @@ public class Mover : MonoBehaviour
             {
                 animator.SetTrigger("PlayJump");
                 animator.SetBool("isGrounded", false);
-               
+
             }
         }
     }
     private void HandleSliding()
-{
+    {
         if (animator != null)
         {
             animator.SetBool("isSliding", true);
         }
 
-    // Move forward automatically
+        // Move forward automatically
         transform.position += transform.forward * autoSlideSpeed * Time.deltaTime;
 
-    // Determine target sway based on input
-    float targetSway = 0f;
-    if (Input.GetKey(KeyCode.A))
-        targetSway = -1f;
-    else if (Input.GetKey(KeyCode.D))
-        targetSway = 1f;
+        // Determine target sway based on input
+        float targetSway = 0f;
+        if (Input.GetKey(KeyCode.A))
+            targetSway = -1f;
+        else if (Input.GetKey(KeyCode.D))
+            targetSway = 1f;
 
-    // Smooth the sway input for gradual change
-    swayInputSmoothed = Mathf.Lerp(swayInputSmoothed, targetSway, swaySmoothness * Time.deltaTime);
+        // Smooth the sway input for gradual change
+        swayInputSmoothed = Mathf.Lerp(swayInputSmoothed, targetSway, swaySmoothness * Time.deltaTime);
 
-    // Calculate sway rotation with max speed limit
-    float swayRotation = swayInputSmoothed * maxSwayRotationSpeed;
+        // Calculate sway rotation with max speed limit
+        float swayRotation = swayInputSmoothed * maxSwayRotationSpeed;
 
-    // Apply rotation
-    transform.Rotate(0, swayRotation * Time.deltaTime, 0);
-}
+        // Apply rotation
+        transform.Rotate(0, swayRotation * Time.deltaTime, 0);
+    }
     private void HandleRun()
     {
         if (Input.GetKey(KeyCode.LeftShift))
@@ -214,4 +216,20 @@ public class Mover : MonoBehaviour
             playerSquash?.Squash();
         }
     }
+
+    public void TriggerBoost(float boostFactor)
+    {
+        // Apply boost temporarily
+        boostMultiplier = boostFactor;
+        // Optional: auto-reset after a delay
+        CancelInvoke("ResetBoost");
+        Invoke("ResetBoost", boostlengthofTime); // boost lasts 0.5 seconds
+    }
+
+    public void ResetBoost()
+    {
+        boostMultiplier = 1f; // back to normal
+    }
 }
+
+
