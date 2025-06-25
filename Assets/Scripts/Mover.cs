@@ -112,13 +112,19 @@ private void CheckGround()
             {
                 animator.SetTrigger("PlayJump");
                 animator.SetBool("isGrounded", false);
+               
             }
         }
     }
     private void HandleSliding()
 {
+        if (animator != null)
+        {
+            animator.SetBool("isSliding", true);
+        }
+
     // Move forward automatically
-    transform.position += transform.forward * autoSlideSpeed * Time.deltaTime;
+        transform.position += transform.forward * autoSlideSpeed * Time.deltaTime;
 
     // Determine target sway based on input
     float targetSway = 0f;
@@ -163,6 +169,8 @@ private void CheckGround()
     public void SetSliding(bool slide)
     {
         isSliding = slide;
+        if (animator != null)
+            animator.SetBool("isSliding", slide);
         Debug.Log("SetSliding called with: " + slide);
     }
 

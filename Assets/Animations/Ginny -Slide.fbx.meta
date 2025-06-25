@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68015c5d4e60844729a552e893004135
+guid: 909a6d1e4b2e744a3acc96afc7f6e699
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,18 +31,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Jump
+      name: Slide
       takeName: Scene
       internalID: -623603649343465320
       firstFrame: 0
-      lastFrame: 35
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
