@@ -8516,6 +8516,7 @@ MonoBehaviour:
     m_Bits: 0
   bobsleighSmoothingSpeed: 1
   boostMultiplier: 1
+  boostlengthofTime: 2
   customGravityScale: 1.4
   jumpForce: 10
   animator: {fileID: 1100576067}
@@ -12142,7 +12143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerType: 0
-  boostFactor: 1.05
+  boostFactor: 1.2
 --- !u!1 &1454864327
 GameObject:
   m_ObjectHideFlags: 0
@@ -15573,7 +15574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerType: 2
-  boostFactor: 200
+  boostFactor: 400
 --- !u!65 &1736396188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15593,8 +15594,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15, y: 15, z: 15}
-  m_Center: {x: 0, y: 0, z: 0.055469513}
+  m_Size: {x: 39.644127, y: 15, z: 30.49786}
+  m_Center: {x: 12.322063, y: 0, z: -7.947523}
 --- !u!4 &1736396189
 Transform:
   m_ObjectHideFlags: 0
