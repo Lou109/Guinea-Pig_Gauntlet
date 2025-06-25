@@ -3289,6 +3289,10 @@ PrefabInstance:
       value: Mutant Slug (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2398243050188993940, guid: b17be6839d27f4037bc841bafe3dd504, type: 3}
+      propertyPath: patrolSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398243050188993940, guid: b17be6839d27f4037bc841bafe3dd504, type: 3}
       propertyPath: rotationSpeed
       value: 2
       objectReference: {fileID: 0}
@@ -8502,7 +8506,7 @@ MonoBehaviour:
   rotationSpeed: 100
   runSpeed: 10
   walkSpeed: 4
-  autoSlideSpeed: 8
+  autoSlideSpeed: 10
   maxSwayRotationSpeed: 30
   swaySmoothness: 10
   groundCheckPoint: {fileID: 1154554795}
@@ -8510,7 +8514,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  jumpForce: 5
+  bobsleighSmoothingSpeed: 1
+  customGravityScale: 1.4
+  jumpForce: 10
   animator: {fileID: 1100576067}
 --- !u!54 &1100576065
 Rigidbody:
@@ -10236,6 +10242,10 @@ PrefabInstance:
       value: Mutant Slug (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2398243050188993940, guid: b17be6839d27f4037bc841bafe3dd504, type: 3}
+      propertyPath: patrolSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398243050188993940, guid: b17be6839d27f4037bc841bafe3dd504, type: 3}
       propertyPath: rotationSpeed
       value: 2
       objectReference: {fileID: 0}
@@ -10972,7 +10982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933752472927730504, guid: e3019eb8969834738b31a4f2aab06d3c, type: 3}
       propertyPath: followSpeed
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1933752472927730504, guid: e3019eb8969834738b31a4f2aab06d3c, type: 3}
       propertyPath: detectionRange
@@ -17412,6 +17422,10 @@ PrefabInstance:
     - target: {fileID: 763486289372602761, guid: b17be6839d27f4037bc841bafe3dd504, type: 3}
       propertyPath: m_Name
       value: Mutant Slug
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398243050188993940, guid: b17be6839d27f4037bc841bafe3dd504, type: 3}
+      propertyPath: patrolSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2398243050188993940, guid: b17be6839d27f4037bc841bafe3dd504, type: 3}
       propertyPath: rotationSpeed

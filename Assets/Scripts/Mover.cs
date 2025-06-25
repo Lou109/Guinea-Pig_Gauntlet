@@ -14,6 +14,10 @@ public class Mover : MonoBehaviour
     [SerializeField] private Transform groundCheckPoint; // assign in inspector
     [SerializeField] private float groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float bobsleighSmoothingSpeed = 10f;
+   
+    [SerializeField] private float customGravityScale = 1.4f;
+
 
     private float swayInputSmoothed = 0f;
 
@@ -58,23 +62,42 @@ public class Mover : MonoBehaviour
             HandleRun();
         }
     }
-private void FixedUpdate()
-{
-    CheckGround();
-}
-
-private void CheckGround()
-{
-    // Visualize the raycast in the scene for debugging
-    Debug.DrawRay(groundCheckPoint.position, Vector3.down * groundCheckDistance, Color.red);
-
-    // Raycast down only to detect ground
-    if (Physics.Raycast(groundCheckPoint.position, Vector3.down, groundCheckDistance, groundLayer))
+    private void FixedUpdate()
     {
-        isGrounded = true;
+        CheckGround();
+        AlignToSlope();
+
+    myRigidbody.AddForce(Vector3.up * Physics.gravity.y * customGravityScale, ForceMode.Acceleration);
+    
+    }    
+
+    private void CheckGround()
+    {
+        // Visualize the raycast in the scene for debugging
+        Debug.DrawRay(groundCheckPoint.position, Vector3.down * groundCheckDistance, Color.red);
+
+        // Raycast down only to detect ground
+        if (Physics.Raycast(groundCheckPoint.position, Vector3.down, groundCheckDistance, groundLayer))
+        {
+            isGrounded = true;
+        }
+        // Do NOT set to false here; only set false when jumping or leaving ground
     }
-    // Do NOT set to false here; only set false when jumping or leaving ground
-}
+    private void AlignToSlope()
+    {
+        RaycastHit hit;
+        Vector3 rayOrigin = transform.position + Vector3.up * 0.5f; // slightly above the ground
+        if (Physics.Raycast(rayOrigin, Vector3.down, out hit, 2f))
+        {
+            Vector3 surfaceNormal = hit.normal;
+
+            // Calculate the target rotation to align character's up to surface normal
+            Quaternion targetRotation = Quaternion.FromToRotation(transform.up, surfaceNormal) * transform.rotation;
+
+            // Smoothly rotate towards the target rotation
+            myRigidbody.MoveRotation(Quaternion.Slerp(myRigidbody.rotation, targetRotation, Time.deltaTime * bobsleighSmoothingSpeed));
+        }
+    }
 
     private void HandleControls()
     {
