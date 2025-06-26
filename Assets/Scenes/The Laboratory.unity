@@ -8507,7 +8507,7 @@ MonoBehaviour:
   runSpeed: 10
   walkSpeed: 4
   autoSlideSpeed: 10
-  maxSwayRotationSpeed: 30
+  maxSwayRotationSpeed: 100
   swaySmoothness: 10
   groundCheckPoint: {fileID: 1154554795}
   groundCheckDistance: 0.2
@@ -8516,9 +8516,9 @@ MonoBehaviour:
     m_Bits: 0
   bobsleighSmoothingSpeed: 1
   boostMultiplier: 1
-  boostlengthofTime: 2
+  boostlengthofTime: 10
   customGravityScale: 1.4
-  jumpForce: 10
+  jumpForce: 11
   animator: {fileID: 1100576067}
 --- !u!54 &1100576065
 Rigidbody:
@@ -12143,7 +12143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerType: 0
-  boostFactor: 1.2
+  boostFactor: 1
 --- !u!1 &1454864327
 GameObject:
   m_ObjectHideFlags: 0
@@ -15574,7 +15574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerType: 2
-  boostFactor: 400
+  boostFactor: 2
 --- !u!65 &1736396188
 BoxCollider:
   m_ObjectHideFlags: 0
