@@ -1845,14 +1845,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1100576062}
-  followDistance: 10
+  followDistance: 12
   followHeight: 4
   followSpeed: 10
-  cameraPresets:
-  - position: {x: 0, y: 3.5, z: -10}
-    rotation: {x: 0.034899496, y: 0, z: 0, w: 0.99939084}
-  - position: {x: 32, y: 8.4, z: 58}
-    rotation: {x: 0.12186935, y: 0, z: 0, w: 0.99254614}
 --- !u!1 &331596562
 GameObject:
   m_ObjectHideFlags: 0
@@ -10633,7 +10628,6 @@ GameObject:
   - component: {fileID: 1358705442}
   - component: {fileID: 1358705441}
   - component: {fileID: 1358705443}
-  - component: {fileID: 1358705444}
   m_Layer: 0
   m_Name: Trigger Point
   m_TagString: TriggerPoint
@@ -10660,8 +10654,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0040808, y: 18.587584, z: 63.142662}
-  m_Center: {x: 0.0010080338, y: 1.7183352, z: -23.381962}
+  m_Size: {x: 1.0040808, y: 18.587584, z: 22.993942}
+  m_Center: {x: 0.0010080338, y: 1.7183352, z: -3.307602}
 --- !u!4 &1358705442
 Transform:
   m_ObjectHideFlags: 0
@@ -10692,20 +10686,6 @@ MonoBehaviour:
   boulderController: {fileID: 1299070013}
   pushDirection: {x: 0, y: 0, z: -1}
   pushForce: 10000
---- !u!114 &1358705444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358705439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a25a325e4bd04babb2de6da647be0ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  presetIndex: 1
-  enableFacePlayer: 1
 --- !u!1001 &1360241825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12270,53 +12250,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 908952836}
   m_SourcePrefab: {fileID: 100100000, guid: 227dd5f266d26420bb28a054a2d9c8f4, type: 3}
---- !u!1 &1471325350
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1471325352}
-  - component: {fileID: 1471325351}
-  m_Layer: 0
-  m_Name: PlayerFaceController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1471325351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471325350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0add7d8e6a0d5409289f67f88d0d21d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1100576062}
-  cameraTransform: {fileID: 330585546}
-  rotationSpeed: -5
---- !u!4 &1471325352
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471325350}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485674974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: afb1246dbbed712498a8058037635488, type: 3}
@@ -17600,7 +17533,6 @@ SceneRoots:
   - {fileID: 1299070011}
   - {fileID: 1358705442}
   - {fileID: 1545884812}
-  - {fileID: 1471325352}
   - {fileID: 1272441698}
   - {fileID: 2023494056}
   - {fileID: 1419468459}
