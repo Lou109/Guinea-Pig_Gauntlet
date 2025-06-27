@@ -5,11 +5,13 @@ using System.Collections;
 public class PlayerSquash : MonoBehaviour
 {
     [SerializeField] float squashDuration = 0.2f; // How long the squash animation lasts
-    [SerializeField]float squashScaleY = 0.2f;   // The Y scale when squashed
+    [SerializeField] float squashScaleY = 0.2f;   // The Y scale when squashed
     private Vector3 originalScale;      // Player's original scale
 
     private Mover moverScript;          // Reference to the movement script
     private Animator animator;          // Reference to the animator
+
+    public bool IsSquashed { get; private set; } = false; // New property
 
     void Start()
     {
@@ -19,9 +21,13 @@ public class PlayerSquash : MonoBehaviour
     }
 
     public void Squash()
-    {
-        StartCoroutine(SquashRoutine());
-    }
+{
+    IsSquashed = true;
+    var rb = GetComponent<Rigidbody>();
+    if (rb != null)
+        rb.isKinematic = true;
+    StartCoroutine(SquashRoutine());
+}
 
     private IEnumerator SquashRoutine()
     {
@@ -34,7 +40,7 @@ public class PlayerSquash : MonoBehaviour
 
         // Stop legs animation
         if (animator != null)
-           animator.enabled = false;
+            animator.enabled = false;
 
         // Animate squash
         float elapsed = 0f;
@@ -46,15 +52,13 @@ public class PlayerSquash : MonoBehaviour
             yield return null;
         }
         transform.localScale = squashScale;  // Stay squashed
-
-        // Player remains squashed and immobile from now on
-        // Do NOT reset scale or re-enable movement here
     }
 
     // Call this method to reset the player (if needed, e.g., respawn)
     public void ResetPlayer()
     {
         transform.localScale = originalScale;
+        IsSquashed = false; // Reset squash state
 
         if (animator != null)
             animator.SetBool("isMoving", true); // Reactivate leg movement

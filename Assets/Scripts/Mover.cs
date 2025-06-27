@@ -124,6 +124,9 @@ public class Mover : MonoBehaviour
         {
             animator.SetFloat("Speed", moveSpeed);
         }
+
+        if (playerSquash != null && playerSquash.IsSquashed)
+        return;
     }
 
     private void HandleJump()
@@ -166,6 +169,10 @@ public class Mover : MonoBehaviour
 
         // Apply rotation
         transform.Rotate(0, swayRotation * Time.deltaTime, 0);
+
+        if (playerSquash != null && playerSquash.IsSquashed)
+            return;
+        
     }
     private void HandleRun()
     {
