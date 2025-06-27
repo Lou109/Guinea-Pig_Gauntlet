@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerFireDamage : MonoBehaviour
 {
     private Coroutine damageRoutine;
-    private PlayerHealth playerHealth;  
+    private PlayerHealth playerHealth;
     private PlayerLives playerLives;
 
     [SerializeField]
@@ -90,6 +90,20 @@ public class PlayerFireDamage : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(damageInterval);
+        }
+    }
+    
+    public void ExtinguishAllFires()
+    {
+    fireCounter = 0;
+    isOnFire = false;
+
+        if (fireParticleEffect != null)
+        fireParticleEffect.SetActive(false);
+        if (damageRoutine != null)
+        {
+        StopCoroutine(damageRoutine);
+        damageRoutine = null;
         }
     }
 }

@@ -9,26 +9,14 @@ public class FireExtinguisher : MonoBehaviour
             var fireComp = other.GetComponent<PlayerFireDamage>();
             if (fireComp != null && fireComp.IsOnFire())
             {
-                fireComp.StopFireDamage();
-                Debug.Log("Fire extinguished");
-                Destroy(gameObject); // Remove the extinguisher after use
-            }
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Extinguisher trigger exited by: " + other.gameObject.name);
-        if (other.CompareTag("Player"))
-        {
-            var fireComp = other.GetComponent<PlayerFireDamage>();
-            if (fireComp != null)
-            {
-                fireComp.StopFireDamage();
-                Debug.Log("Fire re-ignited or still active if multiple fires");
+                fireComp.ExtinguishAllFires(); // Call the new method here
+                Debug.Log("Fire fully extinguished");
+                Destroy(gameObject); // Remove the extinguisher after use (optional)
             }
         }
     }
 }
+
 
 
 

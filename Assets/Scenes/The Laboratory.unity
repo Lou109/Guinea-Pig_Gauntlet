@@ -1851,7 +1851,7 @@ MonoBehaviour:
   cameraPresets:
   - position: {x: 0, y: 3.5, z: -10}
     rotation: {x: 0.034899496, y: 0, z: 0, w: 0.99939084}
-  - position: {x: 32, y: 8, z: 60}
+  - position: {x: 32, y: 8.4, z: 58}
     rotation: {x: 0.12186935, y: 0, z: 0, w: 0.99254614}
 --- !u!1 &331596562
 GameObject:
@@ -8518,7 +8518,7 @@ MonoBehaviour:
   boostMultiplier: 1
   boostlengthofTime: 10
   customGravityScale: 1.4
-  jumpForce: 11
+  jumpForce: 12
   animator: {fileID: 1100576067}
 --- !u!54 &1100576065
 Rigidbody:
@@ -10948,7 +10948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1230269827590887813, guid: e3019eb8969834738b31a4f2aab06d3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.25
+      value: 5.13
       objectReference: {fileID: 0}
     - target: {fileID: 1230269827590887813, guid: e3019eb8969834738b31a4f2aab06d3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10984,7 +10984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933752472927730504, guid: e3019eb8969834738b31a4f2aab06d3c, type: 3}
       propertyPath: followSpeed
-      value: 35
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 1933752472927730504, guid: e3019eb8969834738b31a4f2aab06d3c, type: 3}
       propertyPath: detectionRange
@@ -10999,8 +10999,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1654831785}
     - target: {fileID: 6449821741143387376, guid: e3019eb8969834738b31a4f2aab06d3c, type: 3}
+      propertyPath: m_Size.y
+      value: 8.276808
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449821741143387376, guid: e3019eb8969834738b31a4f2aab06d3c, type: 3}
       propertyPath: m_Size.z
       value: 6.535034
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449821741143387376, guid: e3019eb8969834738b31a4f2aab06d3c, type: 3}
+      propertyPath: m_Center.y
+      value: 4.154931
       objectReference: {fileID: 0}
     - target: {fileID: 6449821741143387376, guid: e3019eb8969834738b31a4f2aab06d3c, type: 3}
       propertyPath: m_Center.z
@@ -15574,7 +15582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerType: 2
-  boostFactor: 2
+  boostFactor: 1.8
 --- !u!65 &1736396188
 BoxCollider:
   m_ObjectHideFlags: 0
