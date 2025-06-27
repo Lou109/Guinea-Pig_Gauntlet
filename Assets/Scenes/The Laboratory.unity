@@ -8504,16 +8504,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  runSpeed: 10
+  runSpeed: 12
   walkSpeed: 4
-  autoSlideSpeed: 10
+  autoSlideSpeed: 12
   maxSwayRotationSpeed: 100
   swaySmoothness: 10
   groundCheckPoint: {fileID: 1154554795}
   groundCheckDistance: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   bobsleighSmoothingSpeed: 1
   boostMultiplier: 1
   boostlengthofTime: 10
@@ -9115,7 +9115,7 @@ GameObject:
   - component: {fileID: 1154554795}
   m_Layer: 0
   m_Name: GroundCheckPoint
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12097,7 +12097,7 @@ GameObject:
   - component: {fileID: 1448579988}
   m_Layer: 0
   m_Name: Start Trigger Collider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12112,7 +12112,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -12151,7 +12151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerType: 0
-  boostFactor: 1
+  boostFactor: 2
 --- !u!1 &1454864327
 GameObject:
   m_ObjectHideFlags: 0
@@ -14373,7 +14373,7 @@ GameObject:
   - component: {fileID: 1597832260}
   m_Layer: 0
   m_Name: Exit Trigger Collider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14388,7 +14388,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -15564,7 +15564,7 @@ GameObject:
   - component: {fileID: 1736396187}
   m_Layer: 0
   m_Name: 'Mid Trigger Collider '
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15582,7 +15582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerType: 2
-  boostFactor: 1.8
+  boostFactor: 2
 --- !u!65 &1736396188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15593,7 +15593,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
