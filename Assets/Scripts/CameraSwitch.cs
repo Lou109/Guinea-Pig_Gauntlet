@@ -21,4 +21,6 @@ public class CameraSwitch : MonoBehaviour
             cinemachineCamera.SetActive(true);
         }
     }
-}
+} 
+
+    
