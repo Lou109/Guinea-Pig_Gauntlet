@@ -2,28 +2,46 @@ using UnityEngine;
 
 public class WheelInteraction : MonoBehaviour
 {
-    [SerializeField] private RotateObjects rotateObjects; // Reference to your rotation script
+    [SerializeField] private RotateWheel rotateWheel; // Reference to your RotateWheel script
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float facingThreshold = 0.866f; // Default 30° threshold
 
     private void Start()
     {
-        // Ensure the rotation is disabled initially
-        if (rotateObjects != null)
+        if (rotateWheel != null)
         {
-            rotateObjects.enabled = false;
+            rotateWheel.isRotating = false;
         }
         else
         {
-            Debug.LogWarning("RotateObjects reference not assigned in WheelInteraction.");
+            Debug.LogWarning("RotateWheel reference is missing.");
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (rotateObjects != null)
+            Vector3 playerForward = other.transform.forward;
+            Vector3 wheelForward = transform.forward;
+
+            float dotProduct = Vector3.Dot(playerForward.normalized, wheelForward.normalized);
+
+            if (dotProduct > facingThreshold)
             {
-                rotateObjects.enabled = true;
+                if (rotateWheel != null)
+                {
+                    rotateWheel.isRotating = true;
+                }
+            }
+            else
+            {
+                if (rotateWheel != null)
+                {
+                    rotateWheel.isRotating = false;
+                }
+                Debug.Log("Player not facing wheel enough to rotate");
             }
         }
     }
@@ -32,9 +50,9 @@ public class WheelInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (rotateObjects != null)
+            if (rotateWheel != null)
             {
-                rotateObjects.enabled = false;
+                rotateWheel.isRotating = false;
             }
         }
     }
