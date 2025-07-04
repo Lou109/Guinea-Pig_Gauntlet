@@ -3,9 +3,12 @@ using UnityEngine;
 public class WheelInteraction : MonoBehaviour
 {
     [SerializeField] private RotateWheel rotateWheel; // Reference to your RotateWheel script
+    [SerializeField] private DoorRaiseAndLower doorController; // Assign your door script here
     [SerializeField]
     [Range(0f, 1f)]
-    private float facingThreshold = 0.866f; // Default 30° threshold
+    private float facingThreshold = 0.866f; // Default 30°
+
+    private bool cycleStarted = false;
 
     private void Start()
     {
@@ -25,14 +28,28 @@ public class WheelInteraction : MonoBehaviour
         {
             Vector3 playerForward = other.transform.forward;
             Vector3 wheelForward = transform.forward;
-
             float dotProduct = Vector3.Dot(playerForward.normalized, wheelForward.normalized);
 
             if (dotProduct > facingThreshold)
             {
                 if (rotateWheel != null)
                 {
-                    rotateWheel.isRotating = true;
+                    // Start rotating
+                    if (!rotateWheel.isRotating)
+                    {
+                        rotateWheel.isRotating = true;
+
+                        // Trigger door to raise once when rotation starts
+                        if (!cycleStarted)
+                        {
+                            cycleStarted = true;
+                            if (doorController != null)
+                            {
+                                Debug.Log("Starting door raise");
+                                doorController.StartCycle();
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -41,7 +58,7 @@ public class WheelInteraction : MonoBehaviour
                 {
                     rotateWheel.isRotating = false;
                 }
-                Debug.Log("Player not facing wheel enough to rotate");
+                cycleStarted = false; // Reset for next cycle
             }
         }
     }
@@ -54,6 +71,7 @@ public class WheelInteraction : MonoBehaviour
             {
                 rotateWheel.isRotating = false;
             }
+            cycleStarted = false;
         }
     }
 }
