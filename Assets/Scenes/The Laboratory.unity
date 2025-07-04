@@ -9660,6 +9660,7 @@ MonoBehaviour:
   customGravityScale: 1.4
   jumpForce: 12
   animator: {fileID: 1100576067}
+  rotateWheel: {fileID: 1910014227}
 --- !u!54 &1100576065
 Rigidbody:
   m_ObjectHideFlags: 0

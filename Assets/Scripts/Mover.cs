@@ -34,6 +34,7 @@ public class Mover : MonoBehaviour
 
     private PlayerSquash playerSquash;
     [SerializeField] private Animator animator;
+    [SerializeField] private RotateWheel rotateWheel;
 
     private void Start()
     {
@@ -63,6 +64,8 @@ public class Mover : MonoBehaviour
             HandleJump();
             HandleRun();
         }
+
+        PlayerOnWheel();
     }
     private void FixedUpdate()
     {
@@ -185,6 +188,14 @@ public class Mover : MonoBehaviour
         {
 
             moveSpeed = walkSpeed;
+        }
+    }
+
+    private void PlayerOnWheel()
+    {
+        if (animator != null && rotateWheel != null)
+        {
+            animator.SetBool("isRunOnWheel", rotateWheel.isRotating);
         }
     }
 
