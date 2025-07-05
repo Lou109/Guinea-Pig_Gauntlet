@@ -209,6 +209,11 @@ public class Mover : MonoBehaviour
         canJump = false;
     }
 
+    public void SetRunSpeed(float newSpeed)
+    {
+        runSpeed = newSpeed;
+    }
+
     public void SetSliding(bool slide)
     {
         isSliding = slide;

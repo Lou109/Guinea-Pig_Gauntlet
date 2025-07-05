@@ -15,6 +15,7 @@ TagManager:
   - Boulder
   - SafeZone
   - Slide
+  - ForceBlockArea
   layers:
   - Default
   - TransparentFX
