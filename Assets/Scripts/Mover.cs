@@ -25,7 +25,8 @@ public class Mover : MonoBehaviour
 
     private float moveSpeed;
 
-    [SerializeField] private float jumpForce = 8f; // Jump force
+    public float jumpForce = 12f; // Jump force
+
     private Rigidbody myRigidbody;
     private bool isGrounded = true;
     private bool canJump = true;
@@ -207,6 +208,11 @@ public class Mover : MonoBehaviour
     public void DisableJumping()
     {
         canJump = false;
+    }
+
+    public void SetJumpForce(float newForce)
+    {
+        jumpForce = newForce;
     }
 
     public void SetRunSpeed(float newSpeed)
